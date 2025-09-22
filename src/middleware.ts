@@ -12,7 +12,7 @@ export async function middleware(request: NextRequest) {
   }
 
   // Skip middleware for the root path (/)
-  if (request.nextUrl.pathname === "/") {
+  if (request.nextUrl.pathname === "/" || request.nextUrl.pathname === "/login") {
     return NextResponse.next();
   }
 

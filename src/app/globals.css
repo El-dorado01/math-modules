@@ -42,6 +42,20 @@
 }
 
 :root {
+   --custom-primary: hsl(240 99% 25%);
+   /* FDCB40 */
+    --custom-primary-foreground: hsl(0 0% 98%);
+    --custom-primary-light: hsl(240 99% 40%);
+    --custom-primary-dark: hsl(240 99% 15%);
+
+    --custom-secondary: hsl(45 98% 62%);
+    --custom-secondary-foreground: hsl(240 99% 15%);
+
+    --gradient-hero: linear-gradient(135deg, hsl(240 99% 25%), hsl(45 98% 62%));
+    --gradient-card: linear-gradient(135deg, hsl(240 99% 25%), hsl(240 99% 40%));
+    --gradient-accent: linear-gradient(135deg, hsl(45 98% 62%), hsl(45 98% 75%));
+
+
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
@@ -77,6 +91,18 @@
 }
 
 .dark {
+  --custom-primary: hsl(240 99% 25%);
+    --custom-primary-foreground: hsl(0 0% 98%);
+    --custom-primary-light: hsl(240 99% 40%);
+    --primary-dark: hsl(240 99% 15%);
+
+    --custom-secondary: hsl(45 98% 62%);
+    --custom-secondary-foreground: hsl(240 99% 15%);
+     --gradient-hero: linear-gradient(135deg, hsl(240 99% 25%), hsl(45 98% 62%));
+    --gradient-card: linear-gradient(135deg, hsl(240 99% 25%), hsl(240 99% 40%));
+    --gradient-accent: linear-gradient(135deg, hsl(45 98% 62%), hsl(45 98% 75%));
+    
+
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.208 0.042 265.755);

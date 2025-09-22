@@ -1,20 +1,27 @@
-import { LoginForm } from "@/components/login-form";
-import { Logo } from "@/components/icons/logo";
-import Link from "next/link";
-import Image from "next/image";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import ValueProps from "@/components/ValueProps";
+import Subjects from "@/components/Subjects";
+import Tutors from "@/components/Tutors";
+import Testimonials from "@/components/Testimonials";
+import CTA from "@/components/CTA";
+import Footer from "@/components/Footer";
 
-export default function LoginPage() {
+const Index = () => {
   return (
-    <div className="bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
-      <div className="flex w-full max-w-sm flex-col gap-6">
-        <Link
-          href="/"
-          className="flex items-center gap-2 self-center font-medium"
-        >
-          <Logo className="size-12" />
-        </Link>
-        <LoginForm />
-      </div>
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main>
+        <Hero />
+        <ValueProps />
+        <Subjects />
+        <Tutors />
+        <Testimonials />
+        <CTA />
+      </main>
+      <Footer />
     </div>
   );
-}
+};
+
+export default Index;

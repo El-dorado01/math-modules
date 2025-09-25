@@ -16,10 +16,10 @@ export const sidebarData: NavbarItem = {
       title: "Getting Started",
       url: "#",
       items: [
-        {
-          title: "Installation",
-          url: "#",
-        },
+        // {
+        //   title: "Installation",
+        //   url: "#",
+        // },
         {
           title: "Modules",
           url: "/modules",
@@ -27,36 +27,32 @@ export const sidebarData: NavbarItem = {
       ],
     },
     {
-      title: "Basic Topics",
+      title: "Topics",
       url: "#",
       items: [
         {
           title: "Number Base System",
           url: `/modules/` + modifyChapterName("Number Base System"),
         },
-        {
-          title: "Data Fetching",
-          url: "#",
-        },
       ],
     },
+    // {
+    //   title: "Advanced Topics",
+    //   url: "#",
+    //   items: [
+    //     {
+    //       title: "Components",
+    //       url: "#",
+    //     },
+    //   ],
+    // },
     {
-      title: "Advanced Topics",
+      title: "Tools & Accessibilities",
       url: "#",
       items: [
         {
-          title: "Components",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Exercises",
-      url: "#",
-      items: [
-        {
-          title: "Accessibility",
-          url: "#",
+          title: "Calculator",
+          url: "/number-base-calculator",
         },
       ],
     },

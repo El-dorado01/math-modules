@@ -248,7 +248,7 @@ const ClientChapterWrapper = ({
         </div>
 
         <div className="mt-5 flex flex-col items-center justify-center space-y-3 border rounded-md w-full p-4">
-          <div>
+          <div className="font-extrabold text-lg">
             Would you love to try our Number Base System Tutoring Calculator?
           </div>
           <Button className="" variant={"outline"} asChild>

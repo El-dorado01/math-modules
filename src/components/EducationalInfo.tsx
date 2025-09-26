@@ -1,4 +1,3 @@
-// components/EducationalInfo.tsx
 export const EducationalInfo = () => {
   return (
     <div className="grid md:grid-cols-2 gap-4 text-sm">

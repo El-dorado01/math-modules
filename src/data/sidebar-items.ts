@@ -47,11 +47,11 @@ export const sidebarData: NavbarItem = {
     //   ],
     // },
     {
-      title: "Tools & Accessibilities",
+      title: "Number Base Calculator",
       url: "#",
       items: [
         {
-          title: "Calculator",
+          title: "Number Base Calculator",
           url: "/number-base-calculator",
         },
       ],

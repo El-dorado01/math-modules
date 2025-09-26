@@ -52,7 +52,7 @@ const ChapterContents = ({ contents }: ChapterContentsProps) => {
             {body.text_content}
           </div>
         ) : body.type === "table" ? (
-          <div className="w-full overflow-x-auto max-w-[600px] p-3 border rounded-md my-3">
+          <div key={body.id} className="w-full overflow-x-auto max-w-[600px] p-3 border rounded-md my-3">
             {body.table_name === "table_1.1" ? (
               <Table1 />
             ) : body.table_name === "table_1.2" ? (

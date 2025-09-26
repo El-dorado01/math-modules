@@ -1,5 +1,5 @@
-// components/ConverterForm.tsx
-import { useState } from "react";
+import { useCallback } from "react";
+import { debounce } from "lodash";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -10,17 +10,25 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
+import { Base } from "@/hooks/useBaseConverter";
+
+interface Result {
+  base: string;
+  value: string;
+}
 
 interface ConverterFormProps {
   inputValue: string;
   setInputValue: (value: string) => void;
-  fromBase: string;
-  setFromBase: (value: string) => void;
-  toBase: string;
-  setToBase: (value: string) => void;
+  fromBase: Base;
+  setFromBase: (value: Base) => void;
+  toBase: Base;
+  setToBase: (value: Base) => void;
   convertNumber: () => void;
   clearAll: () => void;
-  results: { base: string; value: string }[];
+  results: Result[];
+  isConverting: boolean;
+  isValidNumber: (num: string, base: number) => boolean;
 }
 
 export const ConverterForm = ({
@@ -33,17 +41,28 @@ export const ConverterForm = ({
   convertNumber,
   clearAll,
   results,
+  isConverting,
+  isValidNumber,
 }: ConverterFormProps) => {
   const bases = [
-    { value: "2", label: "Binary (2)" },
-    { value: "8", label: "Octal (8)" },
-    { value: "10", label: "Decimal (10)" },
-    { value: "16", label: "Hexadecimal (16)" },
-    { value: "3", label: "Ternary (3)" },
-    { value: "7", label: "Septenary (7)" },
-    { value: "12", label: "Duodecimal (12)" },
-    { value: "36", label: "Base 36" },
+    { value: Base.Binary, label: "Binary (2)" },
+    { value: Base.Octal, label: "Octal (8)" },
+    { value: Base.Decimal, label: "Decimal (10)" },
+    { value: Base.Hexadecimal, label: "Hexadecimal (16)" },
+    { value: Base.Ternary, label: "Ternary (3)" },
+    { value: Base.Septenary, label: "Septenary (7)" },
+    { value: Base.Duodecimal, label: "Duodecimal (12)" },
+    { value: Base.Base36, label: "Base 36" },
   ];
+
+  const debouncedSetInputValue = useCallback(
+    debounce((value: string) => {
+      setInputValue(value.replace(/[^0-9A-Za-z]/g, ""));
+    }, 300),
+    [setInputValue]
+  );
+
+  const isInputValid = isValidNumber(inputValue, parseInt(fromBase));
 
   return (
     <div className="space-y-6">
@@ -54,18 +73,28 @@ export const ConverterForm = ({
           </label>
           <Input
             value={inputValue}
-            onChange={(e) =>
-              setInputValue(e.target.value.replace(/[^0-9A-Za-z]/g, ""))
-            }
+            onChange={(e) => debouncedSetInputValue(e.target.value)}
             placeholder="Enter number (e.g., 1010, FF, 123)"
-            className="text-lg"
+            className={`text-lg ${
+              !isInputValid && inputValue ? "border-red-500" : ""
+            }`}
+            disabled={isConverting}
           />
+          {!isInputValid && inputValue && (
+            <p className="text-red-500 text-sm mt-1">
+              Invalid input for base {fromBase}
+            </p>
+          )}
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="text-sm font-medium mb-2 block">From Base</label>
-            <Select value={fromBase} onValueChange={setFromBase}>
+            <Select
+              value={fromBase}
+              onValueChange={setFromBase}
+              disabled={isConverting}
+            >
               <SelectTrigger>
                 <SelectValue />
               </SelectTrigger>
@@ -81,7 +110,11 @@ export const ConverterForm = ({
 
           <div>
             <label className="text-sm font-medium mb-2 block">To Base</label>
-            <Select value={toBase} onValueChange={setToBase}>
+            <Select
+              value={toBase}
+              onValueChange={setToBase}
+              disabled={isConverting}
+            >
               <SelectTrigger>
                 <SelectValue />
               </SelectTrigger>
@@ -97,16 +130,19 @@ export const ConverterForm = ({
         </div>
 
         <div className="flex gap-2">
-          <Button onClick={convertNumber} className="flex-1">
-            Convert
+          <Button
+            onClick={convertNumber}
+            className="flex-1"
+            disabled={isConverting}
+          >
+            {isConverting ? "Converting..." : "Convert"}
           </Button>
-          <Button onClick={clearAll} variant="outline">
+          <Button onClick={clearAll} variant="outline" disabled={isConverting}>
             Clear
           </Button>
         </div>
       </div>
 
-      {/* Results */}
       {results.length > 0 && (
         <div className="space-y-3">
           <h3 className="font-semibold">Conversions:</h3>

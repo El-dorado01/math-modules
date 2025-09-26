@@ -1,4 +1,3 @@
-// components/TypeWriter.tsx
 import { useState, useEffect, useRef } from "react";
 import React from "react";
 
@@ -21,7 +20,6 @@ export const TypeWriter = ({
     onCompleteRef.current = onComplete;
   }, [onComplete]);
 
-  // For simple text, do character-by-character typing
   if (typeof children === "string") {
     useEffect(() => {
       setCurrentIndex(0);
@@ -46,7 +44,6 @@ export const TypeWriter = ({
       return () => {
         if (timeoutRef.current !== null) clearTimeout(timeoutRef.current);
       };
-      // Only re-run when children text or timing changes
     }, [children, speed, delay]);
 
     const text = typeof children === "string" ? children : "";
@@ -60,13 +57,12 @@ export const TypeWriter = ({
     );
   }
 
-  // For JSX content, show after delay (we don't type JSX to preserve structure)
   useEffect(() => {
     setIsComplete(false);
     timeoutRef.current = setTimeout(() => {
       setIsComplete(true);
       onCompleteRef.current?.();
-    }, delay + 300); // small reveal delay for JSX
+    }, delay + 300);
 
     return () => {
       if (timeoutRef.current !== null) clearTimeout(timeoutRef.current);

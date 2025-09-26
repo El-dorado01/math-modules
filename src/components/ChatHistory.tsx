@@ -1,14 +1,16 @@
-// components/ChatHistory.tsx
+import { useEffect, useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import React from "react";
 
+interface ChatMessage {
+  type: "user" | "system";
+  message: React.ReactNode;
+  id: number;
+  isTyping?: boolean;
+}
+
 interface ChatHistoryProps {
-  chatHistory: {
-    type: "user" | "system";
-    message: React.ReactNode;
-    id: number;
-    isTyping?: boolean;
-  }[];
+  chatHistory: ChatMessage[];
   visibleMessages: Set<number>;
 }
 
@@ -16,8 +18,17 @@ export const ChatHistory = ({
   chatHistory,
   visibleMessages,
 }: ChatHistoryProps) => {
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
+    }
+  }, [chatHistory]);
+
   return (
-    <div className="space-y-4 max-h-96 overflow-y-auto">
+    <div ref={chatContainerRef} className="space-y-4 max-h-96 overflow-y-auto">
       {chatHistory.map((entry) => (
         <div
           key={entry.id}
@@ -31,7 +42,7 @@ export const ChatHistory = ({
         >
           <div className="flex items-start gap-2">
             <Badge
-              variant={entry.type === "user" ? "outline" : "secondary"}
+              variant={entry.type === "user" ? "default" : "secondary"}
               className="text-xs"
             >
               {entry.type === "user" ? "You" : "Calculator"}

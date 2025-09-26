@@ -38,9 +38,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   
   if(chapterName){
     activeUrl = chapterName
-  }else{
+  }else if(pathUrl){
     activeUrl = pathUrl
-  }
+  }else{
+    activeUrl = pathname.split("/")[0]; //number-system-calculator
+  }  
 
   return (
     <Sidebar {...props}>

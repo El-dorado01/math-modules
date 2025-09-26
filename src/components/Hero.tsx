@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/hero-math-tutoring.jpg";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -58,31 +59,40 @@ const Hero = () => {
           >
             <div className="space-y-6">
               <h2 className="text-3xl lg:text-4xl font-heading font-bold">
-                Build Your Math Skills with Confidence
+                Master Number Base Conversions with Ease
               </h2>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-lg">1-on-1 personalized sessions</span>
+                  <span className="text-lg">
+                    Convert numbers between any base (2, 8, 10, 16, and more)
+                  </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-lg">Certified math experts</span>
+                  <span className="text-lg">
+                    Perform arithmetic operations in different bases
+                  </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-lg">All grade levels & subjects</span>
+                  <span className="text-lg">
+                    Step-by-step explanations for learning
+                  </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-lg">Flexible scheduling</span>
+                  <span className="text-lg">
+                    Interactive and user-friendly interface
+                  </span>
                 </div>
               </div>
               <Button
                 size="lg"
                 className="bg-white text-[#010181] hover:bg-white/90 font-semibold w-full sm:w-auto"
+                asChild
               >
-                Find Your Tutor
+                <Link href="/number-base-calculator">Try the Calculator</Link>
               </Button>
             </div>
           </Card>

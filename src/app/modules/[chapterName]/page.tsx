@@ -1,17 +1,9 @@
 import AppHeader from "@/components/app-header";
 import { AppSidebar } from "@/components/app-sidebar";
 import ClientChapterWrapper from "@/components/chapter-client-wrapper";
-import ChapterContents from "@/components/chapter-contents";
-import ChapterHeader from "@/components/chapter-header";
-import ChapterObjectives from "@/components/chapter-objectives";
-import MathEditor from "@/components/math-editor";
-import OnThisPage from "@/components/on-this-page";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
 
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { getChapterByName } from "@/lib/fetch-chapter";
-import { ArrowBigRightDash, Copy, List } from "lucide-react";
 
 interface PageProps {
   params: Promise<{

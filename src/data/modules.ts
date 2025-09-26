@@ -33,19 +33,6 @@ export const moduleChapters: ModuleChapters[] = [
     objectives: [
       { id: 1, text: "Convert numbers in base 10 to other bases." },
       { id: 2, text: "Convert numbers in other bases to base 10." },
-      // { id: 3, text: "Convert decimal fractions in other bases to base 10" },
-      // {
-      //   id: 4,
-      //   text: "Carry out operations involving addition, subtraction, multiplication and division of numbers in different number bases.",
-      // },
-      // {
-      //   id: 5,
-      //   text: "Solve equations involving number base system.",
-      // },
-      // {
-      //   id: 6,
-      //   text: "Apply the processes of the number base system in computer programming.",
-      // },
     ],
     titles: [
       {
@@ -76,15 +63,10 @@ export const moduleChapters: ModuleChapters[] = [
       {
         id: 6,
         type: "heading-3",
-        text: "Table 1.4",
-      },
-      {
-        id: 7,
-        type: "heading-3",
         text: "Example 1",
       },
       {
-        id: 8,
+        id: 7,
         type: "heading-3",
         text: "Example 2",
       },
@@ -111,7 +93,7 @@ export const moduleChapters: ModuleChapters[] = [
           { id: 5, type: "table", table_name: "table_1.1" },
           { id: 6, type: "heading-table", text_content: "Table 1.2 Base 2" },
           { id: 7, type: "table", table_name: "table_1.2" },
-          { id: 8, type: "heading-table", text_content: "Table 1.2 Base 3" },
+          { id: 8, type: "heading-table", text_content: "Table 1.3 Base 3" },
           { id: 9, type: "table", table_name: "table_1.3" },
           { id: 10, type: "heading-1", text_content: "Example 1" },
           {

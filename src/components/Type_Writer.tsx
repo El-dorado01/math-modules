@@ -16,36 +16,50 @@ export const TypeWriter = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const onCompleteRef = useRef(onComplete);
+
+  // Update onCompleteRef when onComplete changes
   useEffect(() => {
     onCompleteRef.current = onComplete;
   }, [onComplete]);
 
-  if (typeof children === "string") {
-    useEffect(() => {
-      setCurrentIndex(0);
-      setIsComplete(false);
+  // Handle typing effect for both string and non-string children
+  useEffect(() => {
+    setCurrentIndex(0);
+    setIsComplete(false);
 
-      const typeText = () => {
-        setCurrentIndex((prev) => {
-          const next = prev + 1;
-          if (next >= (children as string).length) {
-            setIsComplete(true);
-            onCompleteRef.current?.();
-          }
+    const typeText = () => {
+      setCurrentIndex((prev) => {
+        const next = prev + 1;
+        if (next >= (children as string).length) {
+          setIsComplete(true);
+          onCompleteRef.current?.();
           return next;
-        });
-        if (currentIndex + 1 < (children as string).length) {
-          timeoutRef.current = setTimeout(typeText, speed);
         }
-      };
+        timeoutRef.current = setTimeout(typeText, speed);
+        return next;
+      });
+    };
 
-      timeoutRef.current = setTimeout(typeText, delay + speed);
+    if (typeof children === "string") {
+      // String children: start typing after delay
+      timeoutRef.current = setTimeout(typeText, delay);
+    } else {
+      // Non-string children: show "Typing..." then reveal after delay
+      timeoutRef.current = setTimeout(() => {
+        setIsComplete(true);
+        onCompleteRef.current?.();
+      }, delay + 300);
+    }
 
-      return () => {
-        if (timeoutRef.current !== null) clearTimeout(timeoutRef.current);
-      };
-    }, [children, speed, delay]);
+    // Cleanup timeout on unmount or dependency change
+    return () => {
+      if (timeoutRef.current !== null) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [children, speed, delay]); // Removed currentIndex from dependencies
 
+  if (typeof children === "string") {
     const text = typeof children === "string" ? children : "";
     const shown = text.slice(0, currentIndex);
 
@@ -56,18 +70,6 @@ export const TypeWriter = ({
       </>
     );
   }
-
-  useEffect(() => {
-    setIsComplete(false);
-    timeoutRef.current = setTimeout(() => {
-      setIsComplete(true);
-      onCompleteRef.current?.();
-    }, delay + 300);
-
-    return () => {
-      if (timeoutRef.current !== null) clearTimeout(timeoutRef.current);
-    };
-  }, [children, delay]);
 
   if (isComplete) {
     return <>{children}</>;

@@ -27,7 +27,7 @@ import { ChatHistory } from "@/components/ChatHistory";
 import { EducationalInfo } from "@/components/EducationalInfo";
 import { useBaseConverter, Base } from "@/hooks/useBaseConverter";
 import React from "react";
-import { TypeWriter } from "@/components/TypeWriter";
+import { TypeWriter } from "@/components/Type_Writer";
 
 interface Result {
   base: string;
@@ -151,8 +151,8 @@ const BaseCalculator = () => {
         <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5">
           <div className="container mx-auto px-4 py-8">
             <div className="flex items-center mb-8">
-               <Button variant="ghost" size="sm" asChild>
-                 <Link
+              <Button variant="ghost" size="sm" asChild>
+                <Link
                   href={"/modules/number-base-system"}
                   className="flex items-center justify-center"
                 >

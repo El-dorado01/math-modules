@@ -14,7 +14,7 @@ import {
   HelpCircle,
 } from "lucide-react";
 import React from "react";
-import { TypeWriter } from "@/components/TypeWriter";
+import { TypeWriter } from "@/components/Type_Writer";
 
 export enum Base {
   Binary = "2",

@@ -1,7 +1,7 @@
-import { formatSubscript } from "@/lib/format";
-import { Copy, Lightbulb } from "lucide-react";
+
+import { Lightbulb } from "lucide-react";
 import Image from "next/image";
-import React, { RefObject } from "react";
+import React from "react";
 import Table1 from "./table_1.1";
 import Table2 from "./table_1.2";
 import Table3 from "./table_1.3";
@@ -56,7 +56,7 @@ const ChapterContents = ({ contents, titles }: ChapterContentsProps) => {
     return matchingTitle ? matchingTitle.id : null;
   };
 
-  return contents.map((content, index) => (
+  return contents.map((content) => (
     <div
       key={content.id}
       id={`content-section-${content.id}`}

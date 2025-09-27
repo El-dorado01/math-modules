@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Star, MapPin, Clock } from "lucide-react";
+import Image from "next/image";
 
 const Tutors = () => {
   const tutors = [
@@ -68,9 +69,11 @@ const Tutors = () => {
               <div className="p-6">
                 <div className="flex items-center space-x-4 mb-4">
                   <div className="w-16 h-16 rounded-full overflow-hidden">
-                    <img
+                    <Image
                       src={tutor.image}
                       alt={tutor.name}
+                      width={64}
+                      height={64}
                       className="w-full h-full object-cover"
                     />
                   </div>

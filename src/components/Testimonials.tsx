@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Star } from "lucide-react";
+import Image from "next/image";
 
 const Testimonials = () => {
   const testimonials = [
@@ -26,7 +27,7 @@ const Testimonials = () => {
       grade: "8th Grade",
       subject: "Algebra",
       rating: 5,
-      text: "Math used to be my worst subject. Now it's my favorite! My tutor made learning algebra fun and engaging.",
+      text: "Math used to be my worst subject. Now it&apos;s my favorite! My tutor made learning algebra fun and engaging.",
       image:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face",
     },
@@ -62,9 +63,11 @@ const Testimonials = () => {
               </blockquote>
 
               <div className="flex items-center space-x-3">
-                <img
+                <Image
                   src={testimonial.image}
                   alt={testimonial.name}
+                  width={48}
+                  height={48}
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>

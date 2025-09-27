@@ -99,7 +99,7 @@ export const useBaseConverter = () => {
                 <HelpCircle className="w-4 h-4 mt-0.5 text-amber-500" />
                 <TypeWriter speed={30}>
                   I need a number to work with! Please enter a valid number and
-                  I'll show you exactly how to convert it step by step.
+                  I&apos;ll show you exactly how to convert it step by step.
                 </TypeWriter>
               </div>
             ),
@@ -129,7 +129,7 @@ export const useBaseConverter = () => {
                 <div className="flex items-start gap-2">
                   <X className="w-4 h-4 mt-0.5 text-red-500" />
                   <TypeWriter speed={30}>
-                    "{inputValue}" isn't valid in base
+                    "{inputValue}" isn&apos;t valid in base
                     {formatSubscript("", fromBase)}!
                   </TypeWriter>
                 </div>
@@ -314,7 +314,7 @@ export const useBaseConverter = () => {
               <DelayedReveal key="zero" delay={delayMs}>
                 <div className="ml-6">
                   <TypeWriter speed={30}>
-                    Since the number is 0, it's 0 in any base!
+                    Since the number is 0, it&apos;s 0 in any base!
                   </TypeWriter>
                 </div>
               </DelayedReveal>
@@ -322,7 +322,7 @@ export const useBaseConverter = () => {
             delayMs += delayIncrement;
           } else {
             let temp = decimalValue;
-            let steps: string[] = [];
+            const steps: string[] = [];
             while (temp > 0) {
               const remainder = temp % toBaseNum;
               const quotient = Math.floor(temp / toBaseNum);
@@ -401,8 +401,8 @@ export const useBaseConverter = () => {
                 <X className="w-4 h-4 mt-0.5 text-red-500" />
                 <TypeWriter speed={30}>
                   Oops! Something went wrong with the conversion. This might
-                  happen with very large numbers. Try a smaller number and I'll
-                  help you understand the process!
+                  happen with very large numbers. Try a smaller number and
+                  I&apos;ll help you understand the process!
                 </TypeWriter>
               </div>
             ),

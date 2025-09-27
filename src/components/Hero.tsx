@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Play } from "lucide-react";
-import heroImage from "@/assets/hero-math-tutoring.jpg";
 import Link from "next/link";
 
 const Hero = () => {

@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { Title } from "@/data/modules";
-import { modifyChapterName } from "@/lib/fetch-chapter";
 import OnThisPage from "./on-this-page";
 import ChapterContents from "./chapter-contents";
 import ChapterHeader from "./chapter-header";

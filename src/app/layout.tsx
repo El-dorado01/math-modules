@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Quicksand } from "next/font/google";
+import { Quicksand } from "next/font/google";
 import "./globals.css";
 
 const instrumentSans = Quicksand({

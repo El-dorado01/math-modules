@@ -57,15 +57,17 @@ const BaseCalculator = () => {
           <div className="flex items-start gap-2">
             <Hand className="w-4 h-4 min-w-4 mt-0.5 text-primary" />
             <span>
-              Hello! I'm your Number Base Tutor. I'll help you understand how to
-              convert numbers between different numeral systems.
+              Hello! I&apos;m your Number Base Tutor. I&apos;ll help you
+              understand how to convert numbers between different numeral
+              systems.
             </span>
           </div>
           <div className="flex items-start gap-2">
             <Target className="w-4 h-4 min-w-4 mt-0.5 text-green-500" />
             <span>
-              Let's start by entering a number and selecting which bases to
-              convert between. I'll explain each step of the conversion process!
+              Let&apos;s start by entering a number and selecting which bases to
+              convert between. I&apos;ll explain each step of the conversion
+              process!
             </span>
           </div>
         </div>

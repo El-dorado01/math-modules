@@ -1,6 +1,5 @@
 import { useCallback } from "react";
 import { DelayedReveal } from "@/components/DelayedReveal";
-import { TypeWriter } from "@/components/TypeWriter";
 import {
   Calculator,
   CheckCircle,
@@ -15,6 +14,7 @@ import {
   HelpCircle,
 } from "lucide-react";
 import React from "react";
+import { TypeWriter } from "@/components/TypeWriter";
 
 export enum Base {
   Binary = "2",

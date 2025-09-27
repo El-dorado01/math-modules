@@ -22,13 +22,12 @@ import {
   Lightbulb,
 } from "lucide-react";
 import Link from "next/link";
-import { DelayedReveal } from "@/components/DelayedReveal";
-import { TypeWriter } from "@/components/TypeWriter";
 import { ConverterForm } from "@/components/ConverterForm";
 import { ChatHistory } from "@/components/ChatHistory";
 import { EducationalInfo } from "@/components/EducationalInfo";
 import { useBaseConverter, Base } from "@/hooks/useBaseConverter";
 import React from "react";
+import { TypeWriter } from "@/components/TypeWriter";
 
 interface Result {
   base: string;

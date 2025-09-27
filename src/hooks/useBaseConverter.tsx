@@ -90,7 +90,7 @@ export const useBaseConverter = () => {
         addMessages([
           {
             type: "user",
-            message: `Convert "${inputValue}" from base ${fromBase} to base ${toBase}`,
+            message: `Convert &quot;${inputValue}&quot; from base ${fromBase} to base ${toBase}`,
           },
           {
             type: "system",
@@ -120,7 +120,7 @@ export const useBaseConverter = () => {
         addMessages([
           {
             type: "user",
-            message: `Convert "${inputValue}" from base ${fromBase} to base ${toBase}`,
+            message: `Convert &quot;${inputValue}&quot; from base ${fromBase} to base ${toBase}`,
           },
           {
             type: "system",
@@ -381,7 +381,7 @@ export const useBaseConverter = () => {
         addMessages([
           {
             type: "user",
-            message: `Convert "${inputValue}" from base ${fromBase} to base ${toBase}`,
+            message: `Convert &quot;${inputValue}&quot; from base ${fromBase} to base ${toBase}`,
           },
           {
             type: "system",
@@ -392,7 +392,7 @@ export const useBaseConverter = () => {
         addMessages([
           {
             type: "user",
-            message: `Convert "${inputValue}" from base ${fromBase} to base ${toBase}`,
+            message: `Convert &quot;${inputValue}&quot; from base ${fromBase} to base ${toBase}`,
           },
           {
             type: "system",

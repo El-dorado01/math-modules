@@ -90,7 +90,7 @@ export const useBaseConverter = () => {
         addMessages([
           {
             type: "user",
-            message: `Convert &quot;${inputValue}&quot; from base ${fromBase} to base ${toBase}`,
+            message: `Convert "${inputValue}" from base ${fromBase} to base ${toBase}`,
           },
           {
             type: "system",
@@ -120,7 +120,7 @@ export const useBaseConverter = () => {
         addMessages([
           {
             type: "user",
-            message: `Convert &quot;${inputValue}&quot; from base ${fromBase} to base ${toBase}`,
+            message: `Convert "${inputValue}" from base ${fromBase} to base ${toBase}`,
           },
           {
             type: "system",
@@ -129,7 +129,7 @@ export const useBaseConverter = () => {
                 <div className="flex items-start gap-2">
                   <X className="w-4 h-4 mt-0.5 text-red-500" />
                   <TypeWriter speed={30}>
-                    "{inputValue}" isn&apos;t valid in base
+                    &quot;{inputValue}&quot; isn&apos;t valid in base
                     {formatSubscript("", fromBase)}!
                   </TypeWriter>
                 </div>
@@ -193,7 +193,7 @@ export const useBaseConverter = () => {
               <div className="flex items-start gap-2">
                 <Hash className="w-4 h-4 mt-0.5 text-blue-500" />
                 <TypeWriter speed={30}>
-                  Your number "{inputValue}" is in base
+                  Your number &quot;{inputValue}&quot; is in base
                   {formatSubscript("", fromBase)}.
                 </TypeWriter>
               </div>
@@ -381,7 +381,7 @@ export const useBaseConverter = () => {
         addMessages([
           {
             type: "user",
-            message: `Convert &quot;${inputValue}&quot; from base ${fromBase} to base ${toBase}`,
+            message: `Convert "${inputValue}" from base ${fromBase} to base ${toBase}`,
           },
           {
             type: "system",
@@ -392,7 +392,7 @@ export const useBaseConverter = () => {
         addMessages([
           {
             type: "user",
-            message: `Convert &quot;${inputValue}&quot; from base ${fromBase} to base ${toBase}`,
+            message: `Convert "${inputValue}" from base ${fromBase} to base ${toBase}`,
           },
           {
             type: "system",

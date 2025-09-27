@@ -3,7 +3,13 @@
 import { Search, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -72,6 +78,9 @@ const Header = () => {
               <Link href={"/login"}>Join for Free</Link>
             </Button>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetHeader className="hidden">
+                <SheetTitle className="hidden">Mobile Sidebar</SheetTitle>
+              </SheetHeader>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="md:hidden">
                   <Menu className="h-5 w-5" />
@@ -79,7 +88,7 @@ const Header = () => {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <nav className="flex flex-col gap-4">
+                <nav className="flex flex-col gap-4 p-4 w-full h-full border items-start justify-center">
                   <a
                     href="#"
                     className="text-foreground hover:text-[#010181] transition-colors text-lg"
@@ -118,17 +127,18 @@ const Header = () => {
                     <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   </div>
                   {/* Mobile Auth Buttons */}
-                  <div className="flex flex-col gap-2 mt-4">
+                  <div className="flex flex-col gap-2 mt-4 w-full">
                     <Button
                       variant="ghost"
                       asChild
                       onClick={() => setIsOpen(false)}
+                      className="w-full"
                     >
                       <Link href={"/login"}>Log In</Link>
                     </Button>
                     <Button
                       asChild
-                      className="bg-[#010181] hover:bg-[#010181]/90 text-white"
+                      className="bg-[#010181] hover:bg-[#010181]/90 text-white w-full"
                       onClick={() => setIsOpen(false)}
                     >
                       <Link href={"/login"}>Join for Free</Link>

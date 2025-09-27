@@ -16,19 +16,15 @@ export const TypeWriter = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const onCompleteRef = useRef(onComplete);
-
-  // Update onCompleteRef when onComplete changes
   useEffect(() => {
     onCompleteRef.current = onComplete;
   }, [onComplete]);
 
-  // Combined useEffect for both string and non-string children
-  useEffect(() => {
-    setCurrentIndex(0);
-    setIsComplete(false);
+  if (typeof children === "string") {
+    useEffect(() => {
+      setCurrentIndex(0);
+      setIsComplete(false);
 
-    if (typeof children === "string") {
-      // Handle string children (typing effect)
       const typeText = () => {
         setCurrentIndex((prev) => {
           const next = prev + 1;
@@ -44,22 +40,12 @@ export const TypeWriter = ({
       };
 
       timeoutRef.current = setTimeout(typeText, delay + speed);
-    } else {
-      // Handle non-string children
-      timeoutRef.current = setTimeout(() => {
-        setIsComplete(true);
-        onCompleteRef.current?.();
-      }, delay + 300);
-    }
 
-    // Cleanup timeout on unmount or dependency change
-    return () => {
-      if (timeoutRef.current !== null) clearTimeout(timeoutRef.current);
-    };
-  }, [children, speed, delay, currentIndex]);
+      return () => {
+        if (timeoutRef.current !== null) clearTimeout(timeoutRef.current);
+      };
+    }, [children, speed, delay]);
 
-  // Render logic
-  if (typeof children === "string") {
     const text = typeof children === "string" ? children : "";
     const shown = text.slice(0, currentIndex);
 
@@ -70,6 +56,18 @@ export const TypeWriter = ({
       </>
     );
   }
+
+  useEffect(() => {
+    setIsComplete(false);
+    timeoutRef.current = setTimeout(() => {
+      setIsComplete(true);
+      onCompleteRef.current?.();
+    }, delay + 300);
+
+    return () => {
+      if (timeoutRef.current !== null) clearTimeout(timeoutRef.current);
+    };
+  }, [children, delay]);
 
   if (isComplete) {
     return <>{children}</>;

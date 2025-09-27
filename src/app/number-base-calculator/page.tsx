@@ -135,7 +135,7 @@ const BaseCalculator = () => {
               <TypeWriter speed={30}>
                 Pro tip: Try starting with simple numbers like 10, 15, or 255 to
                 see how different bases represent the same value. Each base
-                tells a different "story" about the same number!
+                tells a different &quot;story&quot; about the same number!
               </TypeWriter>
             </div>
           </div>
